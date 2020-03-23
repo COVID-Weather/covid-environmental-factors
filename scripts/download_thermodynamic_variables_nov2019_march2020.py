@@ -22,7 +22,7 @@ every_day = [
             '25', '26', '27',
             '28', '29', '30',
             '31',
-            ],
+            ]
 
 all_day = [
            '00:00', '01:00', '02:00',
@@ -33,26 +33,27 @@ all_day = [
            '15:00', '16:00', '17:00',
            '18:00', '19:00', '20:00',
            '21:00', '22:00', '23:00',
-          ],
+          ]
 
-year_month = {
+time_frame = {
               '2019': ['10', '11', '12'],
-              '2020': ['1', '2', '3'],
-              }
+              '2020': ['1', '2', '3']
+             }
 
-for year, months in year_month.items():
+for year, months in time_frame.items():
     c.retrieve(
         'reanalysis-era5-single-levels',
         {
          'product_type': 'reanalysis',
                'format': 'netcdf',
              'variable': single_level_variables,
-                 'year': [year],
+                 'year': year,
                 'month': months,
                   'day': every_day,
                  'time': all_day    
             },
         '../data/single_level_data_{}.nc'.format(year))
+
 
     c.retrieve(
         'reanalysis-era5-pressure-levels',
@@ -61,7 +62,7 @@ for year, months in year_month.items():
                  'format': 'netcdf',
                'variable': 'specific_humidity',
          'pressure_level': pressure_level,
-                   'year': [year],
+                   'year': year,
                   'month': months,
                     'day': every_day,
                    'time': all_day    
