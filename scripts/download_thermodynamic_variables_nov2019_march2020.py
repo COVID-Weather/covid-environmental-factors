@@ -3,8 +3,8 @@ import cdsapi
 c = cdsapi.Client()
 
 single_level_variables = [
+                          '2m_dewpoint_temperature', 
                           '2m_temperature', 
-                          'mean_sea_level_pressure',
                           'surface_pressure'
                          ]
 
@@ -45,12 +45,12 @@ time_frame = {
               '2020': {
                         '1': every_day,
                         '2': every_day[:29],
-                        '3': every_day[:20]
+             #           '3': every_day[:20]
                        }
-             }
+              }
 
-for year, monthdays in time_frame.items():
-    for month, days in monthdays.items():
+for year, month_days in time_frame.items():
+    for month, days in month_days.items():
         c.retrieve(
             'reanalysis-era5-single-levels',
             {
