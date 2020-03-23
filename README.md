@@ -7,11 +7,13 @@ The directory `/scripts` contains python scripts for downloading ERA5 atmospheri
 
 ### Downloading ERA5 reanalysis data
 
+Our scripts use the [Climate Data Store (CDS) API](https://cds.climate.copernicus.eu/#!/home) and require an account. [These instructions](https://cds.climate.copernicus.eu/api-how-to) describe how to configure your account key and use the python app, which is installed via `pip install cdsapi`.
+
 [ERA5 documentation](https://confluence.ecmwf.int/display/CKB/ERA5%3A+data+documentation)
 
 [Near-surface meterological variables in ERA5](https://cds.climate.copernicus.eu/cdsapp#!/dataset/derived-near-surface-meteorological-variables?tab=overview)
 
-Some variables of interest:
+Some variables of interest (but it seems these are only available through 2018):
 
 Variable | Units | API name for python script
 -- | -- | -- |
