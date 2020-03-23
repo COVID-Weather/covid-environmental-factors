@@ -1,5 +1,6 @@
 data/*
 !data/README.md
+!data/output/
 .ipynb_checkpoints
 .swp
-
+__pycache__
