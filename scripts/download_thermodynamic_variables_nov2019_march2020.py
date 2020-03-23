@@ -2,11 +2,11 @@ import cdsapi
 
 c = cdsapi.Client()
 
-single_level_variables = ['2m_dewpoint_temperature', 
+single_level_variables = [
                           '2m_temperature', 
                           'mean_sea_level_pressure',
-                          'model_bathymetry', 
-                          'surface_pressure']
+                          'surface_pressure'
+                         ]
 
 pressure_level = '1000' # download only specific humidity for now
 
@@ -36,35 +36,45 @@ all_day = [
           ]
 
 time_frame = {
-              '2019': ['10', '11', '12'],
-              '2020': ['1', '2', '3']
+              '2019': {
+                        '10': every_day,
+                        '11': every_day[:30],
+                        '12': every_day
+                       },
+
+              '2020': {
+                        '1': every_day,
+                        '2': every_day[:29],
+                        '3': every_day[:20]
+                       }
              }
 
-for year, months in time_frame.items():
-    c.retrieve(
-        'reanalysis-era5-single-levels',
-        {
-         'product_type': 'reanalysis',
-               'format': 'netcdf',
-             'variable': single_level_variables,
-                 'year': year,
-                'month': months,
-                  'day': every_day,
-                 'time': all_day    
+for year, monthdays in time_frame.items():
+    for month, days in monthdays.items():
+        c.retrieve(
+            'reanalysis-era5-single-levels',
+            {
+             'product_type': 'reanalysis',
+                   'format': 'netcdf',
+                 'variable': single_level_variables,
+                     'year': year,
+                    'month': month,
+                      'day': days,
+                     'time': all_day    
+                },
+            '../data/single_level_data_{}_{}.nc'.format(year, month))
+
+
+        c.retrieve(
+            'reanalysis-era5-pressure-levels',
+            {
+               'product_type': 'reanalysis',
+                     'format': 'netcdf',
+                   'variable': 'specific_humidity',
+             'pressure_level': pressure_level,
+                       'year': year,
+                      'month': month,
+                        'day': days,
+                       'time': all_day    
             },
-        '../data/single_level_data_{}.nc'.format(year))
-
-
-    c.retrieve(
-        'reanalysis-era5-pressure-levels',
-        {
-           'product_type': 'reanalysis',
-                 'format': 'netcdf',
-               'variable': 'specific_humidity',
-         'pressure_level': pressure_level,
-                   'year': year,
-                  'month': months,
-                    'day': every_day,
-                   'time': all_day    
-        },
-        '../data/pressure_level_{}_data_{}.nc'.format(year))
+            '../data/pressure_level_{}_data_{}_{}.nc'.format(year, month))
