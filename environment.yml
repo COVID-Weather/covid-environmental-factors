@@ -1,0 +1,24 @@
+name: covid
+channels:
+  - conda-forge
+dependencies:
+  # Required for full project functionality (dont remove)
+  - pytest
+  # Examples (remove and add as needed)
+  - jupyter
+  - jupyterlab
+  - xarray
+  - xgcm
+  - xhistogram
+  - numpy
+  - scipy
+  - dask
+  - zarr
+  - netcdf4
+  - pandas
+  - matplotlib
+  - cartopy
+  - xskillscore
+  - xesmf
+  - tqdm
+  - cdsapi
