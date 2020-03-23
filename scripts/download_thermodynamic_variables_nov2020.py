@@ -2,7 +2,7 @@ import cdsapi
 
 c = cdsapi.Client()
 
-single_level_variables : ['2m_dewpoint_temperature', 
+single_level_variables = ['2m_dewpoint_temperature', 
                           '2m_temperature', 
                           'mean_sea_level_pressure',
                           'model_bathymetry', 
@@ -46,7 +46,7 @@ for year, months in year_month.items():
         {
          'product_type': 'reanalysis',
                'format': 'netcdf',
-             'variable': single_level_variables
+             'variable': single_level_variables,
                  'year': [year],
                 'month': months,
                   'day': every_day,
