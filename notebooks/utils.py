@@ -21,7 +21,27 @@ def load_jhu_df():
 
 def growth_period(df, region, period=14, threshold=100.):
     if ~((df.loc[region]['Confirmed'] >= threshold).any()):
-        return None
+        return None, None
     else:
         emerged = np.where(df.loc[region]['Confirmed'] >= threshold)[0][0]
-        return df.loc[region][emerged:emerged+period]['Confirmed']
+        return (
+            df.loc[region][emerged:emerged+period]['Confirmed'],
+            [
+                df.loc[region].index[emerged],
+                df.loc[region].index[min(emerged + period, len(df.loc[region]['Confirmed'])-1)]]
+        )
+    
+    
+def sat_vapor_pressure(T):
+    # eq. 7.5 of https://www.ecmwf.int/en/elibrary/16648-part-iv-physical-processes
+    a1 = 611.21
+    a3 = 17.502
+    a4 = 32.19
+    T0 = 273.16
+    return a1*np.exp(a3 * (T - T0) / (T - a4))
+
+def sat_specific_humidity(T, p):
+    # eq. 7.4 of https://www.ecmwf.int/en/elibrary/16648-part-iv-physical-processes
+    Rdry = 287.0597
+    Rvap = 461.5250
+    return Rdry/Rvap * sat_vapor_pressure(T)/ (p - (1 - Rdry/Rvap) * sat_vapor_pressure(T))
