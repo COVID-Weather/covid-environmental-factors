@@ -1,5 +1,5 @@
 # Environmental analysis of COVID-19 infection rates
-
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/hdrake/covid-environmental-factors/master)
 
 ## Downloading data
 
