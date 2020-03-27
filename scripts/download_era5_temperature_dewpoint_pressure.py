@@ -2,81 +2,59 @@ import cdsapi
 c = cdsapi.Client()
 import cdsapi
 
+filepath_2019 = '../data/thermodynamic_variables_2019.nc'
+filepath_2020 = '../data/thermodynamic_variables_2020.nc'
+
+thermodynamic_variables = ['2m_dewpoint_temperature', '2m_temperature', 'surface_pressure']
+
+every_two_hours = [
+                   '00:00', '02:00', '04:00',
+                   '06:00', '08:00', '10:00',
+                   '12:00', '14:00', '16:00',
+                   '18:00', '20:00', '22:00',
+                  ]
+
+every_day = [
+             '01', '02', '03',
+             '04', '05', '06',
+             '07', '08', '09',
+             '10', '11', '12',
+             '13', '14', '15',
+             '16', '17', '18',
+             '19', '20', '21',
+             '22', '23', '24',
+             '25', '26', '27',
+             '28', '29', '30',
+             '31',
+             ]
+
+
+
 c = cdsapi.Client()
 
 c.retrieve(
     'reanalysis-era5-single-levels',
     {
         'product_type': 'reanalysis',
-        'format': 'netcdf',
-        'variable': [
-            '2m_dewpoint_temperature', '2m_temperature', 'surface_pressure',
-        ],
-        'year': '2020',
-        'month': [
-            '01', '02', '03',
-        ],
-        'time': [
-            '00:00', '01:00', '02:00',
-            '03:00', '04:00', '05:00',
-            '06:00', '07:00', '08:00',
-            '09:00', '10:00', '11:00',
-            '12:00', '13:00', '14:00',
-            '15:00', '16:00', '17:00',
-            '18:00', '19:00', '20:00',
-            '21:00', '22:00', '23:00',
-        ],
-        'day': [
-            '01', '02', '03',
-            '04', '05', '06',
-            '07', '08', '09',
-            '10', '11', '12',
-            '13', '14', '15',
-            '16', '17', '18',
-            '19', '20', '21',
-            '22', '23', '24',
-            '25', '26', '27',
-            '28', '29', '30',
-            '31',
-        ],
+              'format': 'netcdf',
+            'variable': thermodynamic_variables,
+                'year': '2020',
+               'month': ['01', '02', '03'],
+                'time': every_two_hours,
+                 'day': every_day,
     },
-    '../data/thermodynamic_variables_2020.nc')
+    filepath_2019)
 
 
 c.retrieve(
     'reanalysis-era5-single-levels',
     {
         'product_type': 'reanalysis',
-        'format': 'netcdf',
-        'variable': [
-            '2m_dewpoint_temperature', '2m_temperature', 'surface_pressure',
-        ],
-        'year': '2019',
-        'month': [
-            '10', '11', '12',
-        ],
-        'time': [
-            '00:00', '01:00', '02:00',
-            '03:00', '04:00', '05:00',
-            '06:00', '07:00', '08:00',
-            '09:00', '10:00', '11:00',
-            '12:00', '13:00', '14:00',
-            '15:00', '16:00', '17:00',
-            '18:00', '19:00', '20:00',
-            '21:00', '22:00', '23:00',
-        ],
-        'day': [
-            '01', '02', '03',
-            '04', '05', '06',
-            '07', '08', '09',
-            '10', '11', '12',
-            '13', '14', '15',
-            '16', '17', '18',
-            '19', '20', '21',
-            '22', '23', '24',
-            '25', '26', '27',
-            '28', '29', '30',
-            '31',
-        ],
+              'format': 'netcdf',
+            'variable': thermodynamic_variables,
+                'year': '2019',
+               'month': ['11', '12'],
+                'time': every_two_hours,
+                 'day': every_day,
     },
-    '../data/thermodynamic_variables_2019.nc')
+    filepath_2020)
