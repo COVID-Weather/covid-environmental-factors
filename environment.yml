@@ -20,6 +20,8 @@ dependencies:
   - cartopy
   - xskillscore
   - xesmf
-  - regionmask
   - tqdm
   - cdsapi
+  - pip
+  - pip:
+    - git+https://github.com/COVID-Weather/regionmask
