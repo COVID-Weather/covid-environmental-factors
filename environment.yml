@@ -1,4 +1,4 @@
-name: covid
+name: covid-weather
 channels:
   - conda-forge
 dependencies:
@@ -20,5 +20,6 @@ dependencies:
   - cartopy
   - xskillscore
   - xesmf
+  - regionmask
   - tqdm
   - cdsapi
