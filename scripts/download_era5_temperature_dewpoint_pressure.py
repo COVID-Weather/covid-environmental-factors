@@ -1,6 +1,6 @@
 import cdsapi
+
 c = cdsapi.Client()
-import cdsapi
 
 filepath_2019 = '../data/thermodynamic_variables_2019.nc'
 filepath_2020 = '../data/thermodynamic_variables_2020.nc'
@@ -28,10 +28,8 @@ every_day = [
              '31',
              ]
 
-
-
-c = cdsapi.Client()
-
+# Sent requests via the CDS API to download data for 2019 and 2020
+# Setup instructions here: https://cds.climate.copernicus.eu/api-how-to
 c.retrieve(
     'reanalysis-era5-single-levels',
     {
