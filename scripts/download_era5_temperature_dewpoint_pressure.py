@@ -3,7 +3,10 @@ import cdsapi, os
 c = cdsapi.Client()
 
 # ERA5 reanalysis data will be downloaded into ../data
-datadir = os.path.join('..', 'data')
+datadir = os.path.join('..', 'data/raw/environmental')
+cmd = f"mkdir -p {datadir}"
+os.system(cmd)
+
 prefix = 'thermodynamic_variables'
 pathprefix = os.path.join(datadir, prefix)
 
