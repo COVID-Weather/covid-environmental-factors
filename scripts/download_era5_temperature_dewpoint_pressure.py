@@ -38,7 +38,7 @@ c.retrieve('reanalysis-era5-single-levels',
                     'year': '2019',
                    'month': ['11'],
                     'time': frequency,
-                     'day': every_day}, '{}_11_2019.nc'.format(pathprefix))
+                     'day': every_day}, '{}_2019_11.nc'.format(pathprefix))
 
 c.retrieve('reanalysis-era5-single-levels', 
            {'product_type': 'reanalysis',
@@ -47,7 +47,7 @@ c.retrieve('reanalysis-era5-single-levels',
                     'year': '2019',
                    'month': ['12'],
                     'time': frequency,
-                     'day': every_day}, '{}_12_2019.nc'.format(pathprefix))
+                     'day': every_day}, '{}_2019_12.nc'.format(pathprefix))
 
 c.retrieve('reanalysis-era5-single-levels', 
            {'product_type': 'reanalysis',
@@ -56,7 +56,7 @@ c.retrieve('reanalysis-era5-single-levels',
                     'year': '2020',
                    'month': ['01'],
                     'time': frequency,
-                     'day': every_day}, '{}_01_2020.nc'.format(pathprefix))
+                     'day': every_day}, '{}_2020_01.nc'.format(pathprefix))
 
 c.retrieve('reanalysis-era5-single-levels', 
            {'product_type': 'reanalysis',
@@ -65,7 +65,7 @@ c.retrieve('reanalysis-era5-single-levels',
                     'year': '2020',
                    'month': ['02'],
                     'time': frequency,
-                     'day': every_day}, '{}_02_2020.nc'.format(pathprefix))
+                     'day': every_day}, '{}_2020_02.nc'.format(pathprefix))
 
 c.retrieve('reanalysis-era5-single-levels', 
            {'product_type': 'reanalysis',
@@ -74,7 +74,7 @@ c.retrieve('reanalysis-era5-single-levels',
                     'year': '2020',
                    'month': ['03'],
                     'time': frequency,
-                     'day': every_day}, '{}_03_2020.nc'.format(pathprefix))
+                     'day': every_day}, '{}_2020_03.nc'.format(pathprefix))
 
 
 ### Environmental variables
@@ -85,7 +85,7 @@ c.retrieve('reanalysis-era5-single-levels',
                     'year': '2019',
                    'month': ['11'],
                     'time': frequency,
-                     'day': every_day}, '{}_11_2019.nc'.format(env_pathprefix))
+                     'day': every_day}, '{}_2019_11.nc'.format(env_pathprefix))
 
 c.retrieve('reanalysis-era5-single-levels', 
            {'product_type': 'reanalysis',
@@ -94,7 +94,7 @@ c.retrieve('reanalysis-era5-single-levels',
                     'year': '2019',
                    'month': ['12'],
                     'time': frequency,
-                     'day': every_day}, '{}_12_2019.nc'.format(env_pathprefix))
+                     'day': every_day}, '{}_2019_12.nc'.format(env_pathprefix))
 
 c.retrieve('reanalysis-era5-single-levels', 
            {'product_type': 'reanalysis',
@@ -103,7 +103,7 @@ c.retrieve('reanalysis-era5-single-levels',
                     'year': '2020',
                    'month': ['01'],
                     'time': frequency,
-                     'day': every_day}, '{}_01_2020.nc'.format(env_pathprefix))
+                     'day': every_day}, '{}_2020_01.nc'.format(env_pathprefix))
 
 c.retrieve('reanalysis-era5-single-levels', 
            {'product_type': 'reanalysis',
@@ -112,7 +112,7 @@ c.retrieve('reanalysis-era5-single-levels',
                     'year': '2020',
                    'month': ['02'],
                     'time': frequency,
-                     'day': every_day}, '{}_02_2020.nc'.format(env_pathprefix))
+                     'day': every_day}, '{}_2020_02.nc'.format(env_pathprefix))
 
 c.retrieve('reanalysis-era5-single-levels', 
            {'product_type': 'reanalysis',
@@ -121,4 +121,4 @@ c.retrieve('reanalysis-era5-single-levels',
                     'year': '2020',
                    'month': ['03'],
                     'time': frequency,
-                     'day': every_day}, '{}_03_2020.nc'.format(env_pathprefix))
+                     'day': every_day}, '{}_2020_03.nc'.format(env_pathprefix))
